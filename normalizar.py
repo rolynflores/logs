@@ -77,27 +77,28 @@ def parse_netflow(path):
 
 
 def parse_anydesk(path):
-    """TODO (estudiantes): completar este parser.
+    """Parsea anydesk_session.log.
 
-    Formato de cada línea del archivo anydesk_session.log:
-        'YYYY-MM-DD HH:MM:SS.mmm ( I) <mensaje>'
-    Ejemplo real:
-        2025-10-14 10:40:22.118 ( I) Session started, Session-ID: 44213309
+    Formato de cada línea: 'YYYY-MM-DD HH:MM:SS.mmm ( I) <mensaje>'
+    Ejemplo real: 2025-10-14 10:40:22.118 ( I) Session started, Session-ID: 44213309
 
-    La hora es LOCAL de Lima (UTC-5), SIN zona horaria indicada en el archivo
-    -- hay que sumarle 5 horas (LIMA_OFFSET) para obtener la hora UTC, igual
-    que ya se hizo en parse_windows_security() más arriba.
-
-    Completen este parser para que, por cada línea del archivo, agreguen una
-    fila a `rows` con la misma tupla de 7 campos que usan las demás funciones:
-        (ts, "anydesk_session.log", tipo_evento, ip_origen, ip_destino, usuario, descripcion)
-
-    Pista de tipo_evento: usen "conexion_remota" para las líneas de sesión/conexión,
-    y "ejecucion_remota" para la línea de "Remote command execution".
-    Pista de IP: la IP remota (198.51.100.77) es la misma en todas las líneas de este archivo.
+    La hora es LOCAL de Lima (UTC-5), sin zona horaria indicada en el archivo:
+    se suma LIMA_OFFSET para obtener la hora UTC, igual que en
+    parse_windows_security() más arriba.
     """
-    # Reemplacen este bloque por su propia implementación.
-    raise NotImplementedError("parse_anydesk() todavía no está implementado — ver Parte 4.2 de la Guía de Actividad.")
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            m = re.match(r"([\d-]+ [\d:]+)\.\d+ \( I\) (.+)", line)
+            if not m:
+                continue
+            ts_txt, msg = m.groups()
+            dt_local = datetime.strptime(ts_txt, "%Y-%m-%d %H:%M:%S")
+            ts = (dt_local + LIMA_OFFSET).replace(tzinfo=UTC)
+            tipo = "conexion_remota" if "session" in msg.lower() or "Remote" in msg else "ejecucion_remota"
+            rows.append((ts, "anydesk_session.log", tipo, "198.51.100.77", "server-files-01", "", msg))
 
 
 def parse_edr(path):
