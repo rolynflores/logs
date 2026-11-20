@@ -1,0 +1,5 @@
+2025-10-14 10:40:18.221 ( I) Incoming session request, Session-ID: 44213309
+2025-10-14 10:40:19.004 ( I) Remote address: 198.51.100.77:443, Remote AnyDesk-ID: 987654321
+2025-10-14 10:40:22.118 ( I) Session started, Session-ID: 44213309
+2025-10-14 10:40:22.340 ( I) File manager access granted
+2025-10-15 05:11:12.552 ( I) Remote command execution: akira_payload.exe

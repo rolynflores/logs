@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2025-10-15T10:11:03Z",
+  "hostname": "server-files-01",
+  "severity": "critical",
+  "detection_name": "Ransom.Akira.Gen",
+  "file_path": "C:\\Users\\Administrador\\AppData\\Local\\Temp\\akira_payload.exe",
+  "file_sha256": "8f3e2a0c1d9b7e6f5a4c3d2e1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a",
+  "action_taken": "quarantined",
+  "process_parent": "AnyDesk.exe",
+  "ticket": "EDR-2025-88341"
+}

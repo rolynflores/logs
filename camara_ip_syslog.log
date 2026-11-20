@@ -1,0 +1,13 @@
+<134>Oct 14 14:13:41 cam-recepcion-01 httpd: GET /admin/login.cgi from 203.0.113.44
+<134>Oct 14 14:14:02 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:14:05 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:14:09 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:14:14 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:14:21 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:15:03 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:16:47 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:18:30 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:20:02 cam-recepcion-01 httpd: authentication failure for admin from 203.0.113.44
+<134>Oct 14 14:21:18 cam-recepcion-01 httpd: authentication success for admin from 203.0.113.44
+<134>Oct 14 14:21:19 cam-recepcion-01 httpd: session opened for user admin from 203.0.113.44
+<134>Oct 14 14:22:47 cam-recepcion-01 httpd: configuration changed by admin: remote_access=enabled
